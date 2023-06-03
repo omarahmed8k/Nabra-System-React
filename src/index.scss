@@ -1,0 +1,356 @@
+/* ! Defaults */
+
+/* English-Fonts */
+@font-face {
+  font-family: "Blinker-Bold";
+  src: url(./assets/fonts/Blinker-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Blinker-Regular";
+  src: url(./assets/fonts/Blinker-Regular.ttf);
+}
+
+/* Main Values */
+:root {
+  --font-bold: "Blinker-Bold", sans-serif;
+  --font-regular: "Blinker-Regular", sans-serif;
+  --main-color: #15242b;
+  --second-color: #53c4c0;
+  --main-text-color: #9b9b9b;
+  --second-text-color: #2e2e2e;
+  --third-text-color: #212121;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.3s all ease-in-out;
+}
+
+html {
+  direction: ltr;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--main-color);
+  font-family: var(--font-regular);
+  color: var(--main-text-color);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+div,
+button,
+input,
+textarea,
+select,
+label,
+table,
+ul,
+li {
+  font-family: var(--font-regular);
+  color: var(--main-text-color);
+}
+
+img {
+  pointer-events: none;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a7a7a7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 15px;
+}
+
+.title {
+  font-family: var(--font-bold);
+  font-size: 40px;
+  color: var(--second-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.col-1-columns {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+
+  .input-container {
+    position: relative;
+
+    label {
+      position: absolute;
+      top: -10px;
+      left: 15px;
+      padding: 0 5px;
+      border-radius: 5px;
+      font-size: 14px;
+      background-color: var(--second-color);
+      color: var(--main-color);
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      width: 100%;
+      height: 50px;
+      background: transparent;
+      border: 1px solid var(--second-color);
+      color: #fff;
+
+      &:focus {
+        border: 1px solid #fff;
+      }
+    }
+
+    textarea {
+      resize: none;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      height: 200px;
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--second-color);
+      color: #fff;
+
+      &:focus {
+        border: 1px solid #fff;
+      }
+    }
+  }
+}
+
+.col-2-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+
+  .input-container {
+    position: relative;
+
+    label {
+      position: absolute;
+      top: -10px;
+      left: 15px;
+      padding: 0 5px;
+      border-radius: 5px;
+      font-size: 14px;
+      background-color: var(--second-color);
+      color: var(--main-color);
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      width: 100%;
+      height: 50px;
+      background: transparent;
+      border: 1px solid var(--second-color);
+      color: #fff;
+
+      &:focus {
+        border: 1px solid #fff;
+      }
+    }
+
+    textarea {
+      resize: none;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      height: 200px;
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--second-color);
+      color: #fff;
+
+      &:focus {
+        border: 1px solid #fff;
+      }
+    }
+  }
+}
+
+.main-btn {
+  margin: 0 auto;
+  min-width: 200px;
+  max-width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--second-color);
+  border: 1px solid var(--second-color);
+  color: var(--main-color);
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+
+  &:hover {
+    background-color: var(--main-color);
+    color: var(--second-color);
+  }
+}
+
+.second-btn {
+  margin: 0 auto;
+  min-width: 200px;
+  max-width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  color: var(--second-color);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: 0.3s all ease-in-out;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.edit-btn {
+  display: flex;
+  max-width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00dfa7;
+  border: 1px solid #00dfa7;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+
+  &:hover {
+    background-color: transparent;
+    color: #00dfa7;
+  }
+
+  &.icons {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    svg,
+    img {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
+
+.delete-btn {
+  display: flex;
+  max-width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dd4d4d;
+  border: 1px solid #dd4d4d;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+
+  &:hover {
+    background-color: transparent;
+    color: #dd4d4d;
+  }
+
+  &.icons {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    svg,
+    img {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 100%;
+  }
+}

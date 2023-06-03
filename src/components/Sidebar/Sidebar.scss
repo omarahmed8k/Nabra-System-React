@@ -1,0 +1,118 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100vh;
+    transform: translateX(-100%);
+    background-color: #254c50;
+    box-shadow: 0 0 10px #0000001a;
+    z-index: 100;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    transition: all 0.3s ease-in-out;
+    &.show {
+        transform: translateX(0);
+    }
+
+    .link-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            background-color: #0000001a;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+    }
+}
+
+.toggle-btn {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 30px;
+    height: 45px;
+    transform: translate(0, -50%);
+    background-color: #254c50;
+    color: #fff;
+    border-radius: 0 10px 10px 0;
+    z-index: 100;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    &.show {
+        transform: translate(80px, -50%);
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        &.rotate {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.fixed-add {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 100;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--second-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px #0000001a;
+    transition: all 0.3s ease-in-out;
+    animation: scale 1s ease-in-out infinite alternate;
+    &:hover {
+        transform: scale(1.1);
+    }
+    .icon {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 992px) {
+    .fixed-add {
+        bottom: 20px;
+        right: 20px;
+    }
+}
