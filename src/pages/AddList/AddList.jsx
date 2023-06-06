@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import sweetAlerts from '../../helpers/sweetAlerts';
-import listsServices from '../../services/listsServices';
+import schoolsServices from '../../services/schoolsServices';
 import Loader from '../../components/Loader/Loader';
 import './AddList.scss'
 
@@ -20,7 +20,7 @@ export default function AddList() {
 
         setLoading(true);
         try {
-            const { data } = await listsServices.createList({ description, ownerId });
+            const { data } = await schoolsServices.createList({ description, ownerId });
             console.log(data)
             setLoading(false);
             sweetAlerts.success('List Added');

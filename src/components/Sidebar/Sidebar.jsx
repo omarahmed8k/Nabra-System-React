@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { authActions } from '../../store/auth-slice'
 import { useDispatch } from 'react-redux'
 import Home from '../../assets/svgs/home.svg'
@@ -7,11 +7,24 @@ import Add from '../../assets/svgs/add.svg'
 import Profile from '../../assets/svgs/profile.svg'
 import Logout from '../../assets/svgs/logout.svg'
 import Arrow from '../../assets/svgs/arrow.svg'
+import Settings from '../../assets/svgs/settings.svg'
 import "./Sidebar.scss"
 
 export default function Sidebar() {
     const [toggle, settoggle] = useState(false)
+    const [path, setPath] = useState('')
     const dispatch = useDispatch()
+    const location = useLocation();
+
+    useEffect(() => {
+        if (!(location.pathname.split('/').pop() === 'add' || location.pathname.split('/').pop() === 'edit')) {
+            setPath(location.pathname)
+        }
+
+        return () => {
+            console.log('cleanup')
+        }
+    }, [location])
 
     return (
         <>
@@ -28,11 +41,14 @@ export default function Sidebar() {
                 <Link className='link-container' to="/profile" onClick={() => settoggle(!toggle)}>
                     <img className='icon' src={Profile} alt="profile" />
                 </Link>
+                <Link className='link-container' to="/settings" onClick={() => settoggle(!toggle)}>
+                    <img className='icon' src={Settings} alt="settings" />
+                </Link>
                 <Link className='link-container' onClick={(e) => { e.preventDefault(); dispatch(authActions.logout()); }}>
                     <img className='icon' src={Logout} alt="logout" />
                 </Link>
             </div>
-            <Link className='fixed-add' to="/add-list">
+            <Link className='fixed-add' to={`${path}/add`}>
                 <img className='icon' src={Add} alt="add" />
             </Link>
         </>

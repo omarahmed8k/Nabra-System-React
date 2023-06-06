@@ -5,12 +5,12 @@ import DataTable from '../../components/DataTable/DataTable.jsx'
 import moment from 'moment/moment.js';
 import Edit from '../../assets/svgs/edit.svg'
 import Delete from '../../assets/svgs/delete.svg'
-import sweetAlerts from '../../helpers/sweetAlerts';
-import listsServices from '../../services/listsServices';
+import sweetAlerts from '../../helpers/sweetAlerts.js';
+import schoolsServices from '../../services/schoolsServices.js';
 import Loader from '../../components/Loader/Loader.jsx';
-import './Lists.scss'
+import './Requests.scss'
 
-export default function Lists() {
+export default function Requests() {
     const userId = useSelector(state => state.auth.userId);
     const navigate = useNavigate();
     const [lists, setLists] = useState([])
@@ -19,7 +19,8 @@ export default function Lists() {
     async function deleteList(listId) {
         setLoading(true);
         try {
-            const { data } = await listsServices.deleteList(listId)
+            const { data } = await schoolsServices.deleteList(listId)
+            console.log(data)
             setLoading(false);
             sweetAlerts.success("List deleted successfully");
             getLists();
@@ -33,7 +34,7 @@ export default function Lists() {
     async function getLists() {
         setLoading(true);
         try {
-            const { data } = await listsServices.allList(userId);
+            const { data } = await schoolsServices.allSchools(userId);
             const newData = data.map((list) => {
                 return {
                     description: list.description,
@@ -67,7 +68,7 @@ export default function Lists() {
         <>
             {loading && <Loader />}
             <div className='list-page'>
-                <h1 className='title'>Todo Lists</h1>
+                <h1 className='title'>Requests</h1>
                 <div className='lists-container'>
                     <DataTable tableHead={['Description', 'Date', "Time", 'Actions']} tableBody={lists} />
                 </div>

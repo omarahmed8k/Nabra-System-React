@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import sweetAlerts from '../../helpers/sweetAlerts';
-import listsServices from '../../services/listsServices';
+import schoolsServices from '../../services/schoolsServices';
 import Loader from '../../components/Loader/Loader';
 
 export default function EditList() {
@@ -15,7 +15,7 @@ export default function EditList() {
     async function getList() {
         setLoading(true);
         try {
-            const { data } = await listsServices.getList(listId);
+            const { data } = await schoolsServices.getList(listId);
             setDescription(data.description);
             setLoading(false);
         } catch (error) {
@@ -33,7 +33,7 @@ export default function EditList() {
 
         setLoading(true);
         try {
-            const { data } = await listsServices.editList(listId, { description });
+            const { data } = await schoolsServices.editList(listId, { description });
             setLoading(false);
             sweetAlerts.success('List edited successfully');
             navigate('/');
